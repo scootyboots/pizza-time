@@ -1,22 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import croost from './images/crooster.jpg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={croost} className="App-logo" alt="croost" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://en.wikipedia.org/wiki/Hackers_(film)"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          I Know You Play the Game
         </a>
       </header>
     </div>
