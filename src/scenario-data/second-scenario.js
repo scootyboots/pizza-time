@@ -3,10 +3,14 @@ import croost from "../images/crooster.jpg";
 
 const scenarioData = {
   id:2,
-  name:"Second Slide",
+  name:"Second Scenario",
   fileName:"second-scenario.js",
+  path:"second-scenario",
   image: croost,
-  events: [<p>event3</p>, <p>event4</p>],
+  events: [
+    {content: <p>event3</p>}, 
+    {content: <p>event4</p>}
+  ],
   buttons: [
     {name:"button one", destination:"second-scenario.js"},
     {name:"button two", destination:"third-scenario.js"},

@@ -4,10 +4,14 @@ import secondScenario from "./second-scenario"
 
 const scenarioData = {
   id:1,
-  name:"First Slide",
+  name:"First Scenario",
   fileName:"first-scenario.js",
+  path:"first-scenario",
   image: croost,
-  events: [<p>event1</p>, <p>event2</p>],
+  events: [
+    {content: <p>event1</p>}, 
+    {content: <p>event2</p>}
+  ],
   buttons: [
     {name:"button one", destination: secondScenario},
     {name:"button two", destination:"third-scenario.js"},
