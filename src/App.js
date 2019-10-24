@@ -1,53 +1,30 @@
 import React, {Component} from 'react';
 import './App.css';
 import Default from './scenarios/Default';
-import gameStart from './scenario-data/game-start'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import croost from "./images/crooster.jpg";
+import Scenario from './Senario'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 
 class App extends Component {
 
-  state = {
-    image: gameStart.image,
-    events: gameStart.events,
-    buttons: gameStart.buttons,
-    path: gameStart.path
-  }
-
-  nextScenarioInport = (scenarioData) => {
-    this.setState({
-      image: scenarioData.image,
-      events: scenarioData.events,
-      buttons: scenarioData.buttons,
-      path: gameStart.path
-    })
-  }
-
-
   render() {
     return (
-      <div className="App">
-        <Router>
-          <Route path={`/${this.state.path}`} render={( ) => <Default image={this.state.image} events={this.state.events} buttons={this.state.buttons} click={this.nextScenarioInport} />}/>
-        </Router>
-
-        {console.log('nice try loser')}
-
-          {/* path={`/${this.state.path}`} */}
-
-          {/* <Route path="/scenario" render={(props) => <Default {...props} image={this.state.image} events={this.state.events} buttons={this.state.buttons} click={this.nextScenarioInport} />}/> */}
-
-        {/* <Default 
-          image={this.state.image} 
-          events={this.state.events} 
-          buttons={this.state.buttons}
-          click={this.nextScenarioInport} /> */}
-  
-      </div>
-  
+      <Router>
+        <div className="App">
+          <div>
+            <Link to="/">start over loser</Link>
+          </div>
+          <Switch>
+            <Route  exact path="/" render={() => <div><img src={croost} /><Link to="/game-start">I know you play the game</Link></div>} />
+            <Route path="/game-start">
+              <Scenario />
+            </Route>
+          </Switch>    
+        </div>
+      </Router>
     );
-  }
-  
+  }  
 }
 
 
