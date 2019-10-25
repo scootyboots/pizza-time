@@ -6,15 +6,15 @@ const scenarioData = {
   id:1,
   name:"First Scenario",
   fileName:"first-scenario.js",
-  path:"first-scenario",
+  path:"/first-scenario",
   image: croost,
   events: [
     {content: <p>event1</p>}, 
     {content: <p>event2</p>}
   ],
   buttons: [
-    {name:"button one", destination: secondScenario},
-    {name:"button two", destination:"third-scenario.js"},
+    {text:"button one", nextScenario: secondScenario},
+    {text:"button two", nextScenario:"third-scenario.js"},
   ]
 };
 
