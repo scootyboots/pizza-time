@@ -1,35 +1,30 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import allScenarios from '../scenario-data'
-import Scenarios from '../Scenarios';
+import allScenarios from '../scenario-data/index'
+import Notification from '../scenarios/Notification'
 
 const Default = ({ image, events, buttons, click, match }) => {
   let { params } = match;
   const scenario = allScenarios[params.scenarioId]
-
+  console.log(match)
   return (
-    <div className="default">
-      <h2>{scenario.description}</h2>
+    
+    <div className={scenario.type}>
+
+       {scenario.events.map(( { type }, i ) => {
+         if ( type === 'text' ) { return <p>{scenario.events[i].content}</p> }
+         if ( type === 'image' ) { return <img src={scenario.events[i].content} alt={scenario.events[i].alt}/> }
+       })}
+
       {scenario.answers.map(({ text, key }) => {
         params.scenarioId = key
         return (
-          <Link to={`/scenarios/${key}`}>{text}</Link>
+          <Link to={`/game/${key}`}>{text}</Link>
         )
       })}
 
+      {scenario.notification.active === true ? <Notification number={scenario.notification.number} notiKey={scenario.notification.key} /> : null}
       
-
-      {/* <img src={image} width="200px" alt="emotions are hard"/>
-
-      {events.map(event => {
-        if (event.destination) {
-          return <div onClick={() => {click(event.destination)}}>{event.content}</div>
-        } else {
-          return event.content
-        }
-      })}
-      {buttons.map((button) => <Link to={button.nextScenario.path} onClick={() => {click(button.nextScenario)}}>{button.text}</Link>)}
-      {buttons.map((button) => <button onClick={() => {click(button.destination)}}>{button.name}</button>)} */}
     </div>
   )
 };
