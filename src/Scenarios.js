@@ -18,7 +18,11 @@ class Scenarios extends Component {
         <div>
           <h1>THIS IS THE SCENARIOS COMPONENT</h1>
           <img src={croost} alt="crooster the rooster"/>
-          <p>Something giving some context for why this game exists</p>
+          <div className="text-box">
+            <p className ="default-text">this is a message for all the voo's in the world</p>
+            <p className ="default-text">this is a message for all the voo's in the world this is a message for all the voo's in the world</p>
+            <p>Something giving some context for why this game exists</p>
+          </div>
           <Link to={`${match.path}/${Object.keys(allScenarios)[0]}`}>We'll start the game at home - READY? GO?</Link>
         </div>
       )

@@ -20,3 +20,36 @@
 .App-link {
   color: #07194b;
 }
+
+.text-box {
+  width: 80vw;
+  margin: auto;
+  text-align: left;
+}
+
+.content-container {
+  width: 80vw;
+  margin: auto;
+  text-align: left;
+}
+
+p {
+  white-space: nowrap;
+  overflow: hidden; 
+  width: 100%;   
+}
+
+p.default-text {
+  visibility: hidden;
+}
+
+p.default-text-animation {
+  animation: type 2s steps(45, end);
+  visibility: visible;
+}
+
+@keyframes type{
+  from{width: 0;}
+}
+
+
