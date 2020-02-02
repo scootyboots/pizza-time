@@ -52,4 +52,47 @@ p.default-text-animation {
   from{width: 0;}
 }
 
+img.inner-image {
+  animation: fade-in-bottom 0.75s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@-webkit-keyframes fade-in-bottom {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-bottom {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.sent {
+  text-align: right;
+  margin-bottom: 20px;
+}
+.received {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.thought {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 

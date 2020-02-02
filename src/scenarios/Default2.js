@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
-const Default2 = ({ image, events, buttons, click }) => {
-  const params = useParams()
-  return (
-    <div className="default">
-      <h2>Hello my darling</h2>
-      <pre>{JSON.stringify(params)}</pre>
-    </div>
-  );
+class Default2 extends Component {
+
+  componentDidMount() {
+    const texts = Array.from(document.querySelectorAll('.default-text'))
+    texts.forEach((text) => console.log(text))
+    
+    
+  }
+
+  render() {
+    return (
+      <div></div>
+    )
+  }
 }
 
 export default Default2

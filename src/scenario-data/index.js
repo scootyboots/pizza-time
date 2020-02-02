@@ -2,7 +2,7 @@ import croost from '../images/crooster.jpg'
 
 export default {
     "home": {
-        "type": "default",
+        "type": "Default",
         "events": [
             { type: "text", content: "You're at home, What do you do?" },
             { type: "image", content: croost , alt: "cooster face"},
@@ -15,7 +15,7 @@ export default {
         ]
     },
     "call_tucker": {
-        "type": "default",
+        "type": "Default",
         "events": [
             { type: "text", content: "He doesn't pick up because in the end he really doesn't care that much" },
             { type: "text", content: "You think maybe if I can just think of something funnier to say" }
@@ -27,7 +27,7 @@ export default {
         ]
     },
     "look_at_internet": {
-        "type": "default",
+        "type": "Default",
         "events": [
             {type: "text", content: "Twitter sucks and you hate yourself."}
         ],
@@ -35,10 +35,13 @@ export default {
         "answers": []
     },
     "answer_peggy": {
-        "type": "message",
+        "type": "Messenger",
         events:[
-            { sender: true, text: "I'm dumb and my name is Crista" },
-            { sender: false, text: "I'm also dumb, but my name is not Crista" }
+            { type: 'sent', text: "I'm dumb and my name is Crista" },
+            { type: 'received', text: "I'm also dumb, but my name is not Crista" },
+            { type: 'sent', text: "are you sure you're name's not Crista? Because my name is Crista" },
+            { type: 'thought', text: "~~~ why are normal situations so challenging for me? ~~~" },
+            { type: 'received', text: "yeah for sure, my name's not Crista" },
         ],
         "notification": { active: false, number: 0, key: "" },
     }
