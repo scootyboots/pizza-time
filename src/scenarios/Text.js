@@ -1,41 +1,31 @@
 import React, { Component, useState, useEffect, useCallback } from 'react'
 
-const Text = ({ content }) => {
+const Text = ({ content, delay }) => {
 
-  const [incContent, incrementContent] = useState('') 
+  const splitContent = content.split('')
+  const [incContent, incrementContent] = useState(splitContent[0]) 
 
-  // content.split('').forEach((car, i) => {
-  //   return setTimeout(() => {
-  //     incContent + car
-  //     console.log(incContent)
-  //   }, i * 500)
-  // }
 
   useEffect(() => {
-    content = content.split('')[1]
-    console.log('now this is content ' + content)
+
+    // const finishRender = (inc) => {
+    //   clearTimeout(inc)
+    //   incrementContent(content)
+    // }
+
+    if (incContent.length < splitContent.length) {
+        setTimeout(() => {
+        incrementContent(incContent + splitContent[incContent.length])
+      }, 1 * delay)
+
+      // window.addEventListener("keydown", () => finishRender(inc))
+      // window.addEventListener("click", () => finishRender(inc))
+    }
   })
 
 
-  // useEffect(() => {
-    // content.split('').forEach((car, i) => {
-    //   console.log(incContent + car)
-    //   return incrementContent(incContent + car)
-    // })
-  //    const car1 = content.split('')[3]
-  //    incrementContent(incContent + car1)
-  // }, [content, incContent])
-
-  // useEffect(() => {
-  //   const contArr = content.split('')
-  //   let i = 0
-  //   if (i < contArr.length) {
-  //     return setTimeout(() => incrementContent(incContent + contArr[i]), i * 500)
-  //   }
-  // })
-
   return (
-  <p className="default-text-testing">{content}</p> 
+  <p className="default-text-testing">{incContent}</p> 
   )
 }
 

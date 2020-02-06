@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './App.css';
-import Default from './scenarios/Default';
 import croost from "./images/crooster.jpg";
 import Scenarios from './Scenarios';
 import Home from './Home'

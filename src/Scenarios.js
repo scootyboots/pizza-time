@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Default from './scenarios/Default'
+import Default from './scenarios/Default/Default'
 import { Route, Link } from 'react-router-dom'
 import allScenarios from './scenario-data/index'
 import croost from "./images/crooster.jpg";
@@ -15,8 +15,7 @@ class Scenarios extends Component {
     // console.log(match)
 
     if (match.isExact === true) {
-      return (
-      
+      return ( 
         <div>
           <h1>THIS IS THE SCENARIOS COMPONENT</h1>
           <img src={croost} alt="crooster the rooster"/>

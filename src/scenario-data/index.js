@@ -6,7 +6,7 @@ export default {
         "events": [
             { type: "text", content: "You're at home, What do you do?" },
             { type: "image", content: croost , alt: "cooster face"},
-            { type: "text", content: "I know right? Doesn't get much worse than that" }
+            { type: "text", content: "I know right? Doesn't get much worse than that." }
         ],
         "notification": { active: false, number: 0, key: "" },
         "answers": [

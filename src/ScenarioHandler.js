@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
 import allScenarios from './scenario-data/index'
-import Default from './scenarios/Default'
-import Messenger from './scenarios/Messenger'
+import Default from './scenarios/Default/Default'
+import Messenger from './scenarios/Messenger/Messenger'
 
 const ScenarioHandler = ({ match }) => {
 
@@ -16,7 +16,7 @@ const ScenarioHandler = ({ match }) => {
   if (scenario.type === 'Default') {
     return <Default scenario={scenario} scenarioID={params.scenarioId}/>  
   } else if (scenario.type === 'Messenger') {
-    return <Messenger scenario={scenario} />
+    return <Messenger scenario={scenario} scenarioID={params.scenarioId}/>
   } else {
     return (
       <div>
