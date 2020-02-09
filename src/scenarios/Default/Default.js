@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import allScenarios from '../../scenario-data/index'
 import Notification from '../Notification'
 import Text from '../Text'
+import Emotion from '../Emotion/Emotion'
 
 const Default = ({ scenario }) => {
 
@@ -36,10 +37,13 @@ const Default = ({ scenario }) => {
   return (
     
     <div className={scenario.type}>
+      {scenario.emotion ? <Emotion text={scenario.emotion.text} img={scenario.emotion.img}/> : null}
       <div className="content-container">
-      {event.map(( { type, content, alt } ) => renderContent(type, content, alt))}
-       </div>
-
+        <div className="content-slide-main">
+          {event.map(( { type, content, alt } ) => renderContent(type, content, alt))}
+        </div>
+      </div>
+      
       <div className="next-container">
       {scenario.answers.map(({ text, key }) => <Link to={`/game/${key}`}>{text}</Link>)}
       </div>
