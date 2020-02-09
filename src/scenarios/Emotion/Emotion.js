@@ -7,7 +7,7 @@ const Emotion = ({ text, img }) => (
       <img src={img} alt="emotion" />
     </div>
     <div className="emotion-text">
-      <p>You are feeling: {text}</p>
+      <p>MOOD: {text}</p>
     </div>
   </div>
 )
