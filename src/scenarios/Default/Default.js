@@ -6,31 +6,59 @@ import Text from '../Text'
 import Emotion from '../Emotion/Emotion'
 
 const Default = ({ scenario }) => {
-
-  const [event, addEvent] = useState([scenario.events[0]])
+  
+  const [event, changeEvent] = useState([scenario.events[0]])
   const [delays, changeDelay] = useState({text: 50, img: 750})
 
+  console.log('-------------- scenario Default received --------------')
+  console.log(scenario)
+  console.log('-------------- Default event state --------------')
+  console.log(event)
+
   useEffect(() => {
-    window.addEventListener("keydown", () => changeDelay({ text: 0, img: 0 }))
-    window.addEventListener("click", () => changeDelay({ text: 0, img: 0 }))
+
+    window.addEventListener("keydown", () => {
+      if (event[0] !== scenario.events[0]) {
+        changeEvent([scenario.events[0]])
+
+      } else if (event.length < scenario.events.length) {
+        changeEvent([...event, scenario.events[event.length]])
+        console.log(event.length)
+        console.log(scenario.events.length)
+      }
+    })
+    // window.addEventListener("click", () => {
+    //   console.log('clicked')
+    //   if (event.length < scenario.events.length) {
+    //     changeEvent([...event, scenario.events[event.length]])
+    //     console.log(event.length)
+    //     console.log(scenario.events.length)
+    //   }
+    // })
 
     const calcTimeout = (event) => {
       return event.type === 'text' ? event.content.length * delays.text : delays.img
     }
 
-    if (event.length < scenario.events.length) { 
-      setTimeout(() => {
-        addEvent([...event, scenario.events[event.length]])
-        console.log(scenario.events[event.length - 1].type)
-      }, calcTimeout(scenario.events[event.length - 1]))  
-      changeDelay({ text: 50, img: 750 }) 
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [event])
+    
 
-  const renderContent = ( type, events, alt ) => {
-    if ( type === 'text' ) return <Text content={events} delay={delays.text}/>
-    if ( type === 'image' ) return <img className="inner-image" src={events} alt={alt}/> 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[event, scenario])
+
+  useEffect(() => {
+    console.log('---------- scenario.event change detected ----------')
+    changeEvent([scenario.events[0]])
+    console.log('set event to')
+    console.log([scenario.events[0]])
+    // changeDelay({text: 50, img: 750})
+    // rest state in case the scenario event changes 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scenario])
+
+  const renderContent = ( type, content, alt ) => {
+    // if ( type === 'text' ) return <Text content={content} delay={delays.text}/>
+    if ( type === 'text' ) return <p>{content}</p>
+    if ( type === 'image' ) return <img className="inner-image" src={content} alt={alt}/> 
     if ( type === 'single-message' ) return <div className="single-message">I AM A SINGLE MESSAGE</div>
   }
 
@@ -41,11 +69,13 @@ const Default = ({ scenario }) => {
       <div className="content-container">
         <div className="content-slide-main">
           {event.map(( { type, content, alt } ) => renderContent(type, content, alt))}
+          {/* {scenario.events.map(( { type, content, alt } ) => renderContent(type, content, alt))} */}
+          
         </div>
       </div>
       
       <div className="next-container">
-      {scenario.answers.map(({ text, key }) => <Link to={`/game/${key}`}>{text}</Link>)}
+      { event.length === scenario.events.length ? scenario.answers.map(({ text, key }) => <Link to={`/game/${key}`}>{text}</Link>) : null}
       </div>
 
       {scenario.notification.active === true ? <Notification number={scenario.notification.number} notiKey={scenario.notification.key} /> : null}

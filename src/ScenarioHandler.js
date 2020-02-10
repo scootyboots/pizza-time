@@ -8,10 +8,10 @@ const ScenarioHandler = ({ match }) => {
 
   let { params } = match;
   const scenario = allScenarios[params.scenarioId]
-  console.log(match)
-  console.log(params.scenarioId)
-  console.log(scenario.type)
-  console.log('hello world')
+  // console.log(match)
+  // console.log(allScenarios[params.scenarioId])
+  // console.log(scenario.type)
+  // console.log('hello world')
 
   if (scenario.type === 'Default') {
     return <Default scenario={scenario} scenarioID={params.scenarioId}/>  
