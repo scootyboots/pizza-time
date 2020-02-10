@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import './App.css';
-import Default from './scenarios/Default';
 import croost from "./images/crooster.jpg";
 import Scenarios from './Scenarios';
 import Home from './Home'
 import allScenarios from './scenario-data/index'
+import ScenarioHandler from './ScenarioHandler'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
          <Switch>
            <Route exact path="/" component={Home} />
            <Route exact path="/game" component={Scenarios} />
-           <Route exact path={`/game/:scenarioId`} component={Default} />
+           <Route exact path={`/game/:scenarioId`} component={ScenarioHandler} />
            <Route path="*" component={() => <div>path does not exist</div>} />
          </Switch>
        </div>

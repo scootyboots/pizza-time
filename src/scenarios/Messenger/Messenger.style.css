@@ -1,0 +1,81 @@
+.messenger-container {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.messenger-container .sent {
+  text-align: right;
+  width: 70%;
+  margin-bottom: 40px;
+  animation: fade-in-bottom 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.butten-wrap-sent {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px 15px 0 15px;
+}
+
+.messenger-container .received {
+  text-align: left;
+  width: 70%;
+  margin-bottom: 40px;
+  animation: fade-in-bottom 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.butten-wrap-received {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px 15px 15px 0;
+}
+.messenger-container .thought {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+@-webkit-keyframes fade-in-bottom {
+  0% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-bottom {
+  0% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/*
+.typing {
+				display: inline-block;
+				width: 0.8rem;
+				height: 0.8rem;
+				margin-right: 0rem;
+				box-sizing: border-box;
+				background: #ccc;
+				border-radius: 50%;
+				
+				&.typing-1 { animation: typing 3s infinite }
+				&.typing-2 { animation: typing 3s 250ms infinite }
+				&.typing-3 { animation: typing 3s 500ms infinite }
+			}
+*/
