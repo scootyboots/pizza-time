@@ -10,6 +10,9 @@ const Default = ({ scenario }) => {
   const [event, addEvent] = useState([scenario.events[0]])
   const [delays, changeDelay] = useState({text: 50, img: 750})
 
+  const splitContent = event.content.split('')
+  const [incContent, incrementContent] = useState(splitContent[0]) 
+
   useEffect(() => {
     window.addEventListener("keydown", () => changeDelay({ text: 0, img: 0 }))
     window.addEventListener("click", () => changeDelay({ text: 0, img: 0 }))
@@ -25,12 +28,21 @@ const Default = ({ scenario }) => {
       }, calcTimeout(scenario.events[event.length - 1]))  
       changeDelay({ text: 50, img: 750 }) 
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [event])
 
-  const renderContent = ( type, events, alt ) => {
-    if ( type === 'text' ) return <Text content={events} delay={delays.text}/>
-    if ( type === 'image' ) return <img className="inner-image" src={events} alt={alt}/> 
+    if (incContent.length < splitContent.length) {
+      setTimeout(() => {
+      incrementContent(incContent + splitContent[incContent.length])
+    }, 1 * delays.text)
+  }
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [event, incContent])
+
+
+
+  const renderContent = ( type, content, alt ) => {
+    if ( type === 'text' ) return <p>{incContent}</p>
+    if ( type === 'image' ) return <img className="inner-image" src={content} alt={alt}/> 
     if ( type === 'single-message' ) return <div className="single-message">I AM A SINGLE MESSAGE</div>
   }
 
