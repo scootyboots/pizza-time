@@ -10,7 +10,7 @@ const Default = ({ scenario }) => {
   const [event, changeEvent] = useState([scenario.events[0]])
   const [delays, changeDelay] = useState({text: 50, img: 750})
 
-  const [incText, incrementText] = useState('') 
+  const [incText, incrementText] = useState(['']) 
 
   console.log('-------------- scenario Default received --------------')
   console.log(scenario)
@@ -57,9 +57,20 @@ const Default = ({ scenario }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scenario])
 
-  const renderContent = ( type, content, alt ) => {
+  const updateTextState = ( content, i ) => {
+    const splitContent = content.split('')
+    if(splitContent.length > incText.length) {
+      incrementText()
+    }
+  }
+
+
+  const renderContent = ( type, content, alt, i ) => {
     // if ( type === 'text' ) return <Text content={content} delay={delays.text}/>
-    if ( type === 'text' ) return <p>{content}</p>
+    if ( type === 'text' ) {
+      updateTextState(content, i)
+      return <p>{incText[i]}</p>
+    }
     if ( type === 'image' ) return <img className="inner-image" src={content} alt={alt}/> 
     if ( type === 'single-message' ) return <div className="single-message">I AM A SINGLE MESSAGE</div>
   }
@@ -70,7 +81,7 @@ const Default = ({ scenario }) => {
       {scenario.emotion ? <Emotion text={scenario.emotion.text} img={scenario.emotion.img}/> : null}
       <div className="content-container">
         <div className="content-slide-main">
-          {event.map(( { type, content, alt } ) => renderContent(type, content, alt))}
+          {event.map(( { type, content, alt, i } ) => renderContent(type, content, alt))}
           {/* {scenario.events.map(( { type, content, alt } ) => renderContent(type, content, alt))} */}
           
         </div>
