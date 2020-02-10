@@ -41,7 +41,7 @@ export default {
         "events":[
             { "type": 'sent', "text": "I'm dumb and my name is Crista" },
             { "type": 'received', "text": "I'm also dumb, but my name is not Crista" },
-            { "type": 'sent', "text": "are you sure you're name's not Crista? Because my name is Crista" },
+            { "type": 'sent', "text": "are you sure you're name's not Crista? Because my name is Crista. are you sure you're name's not Crista? Because my name is Crista. are you sure you're name's not Crista? Because my name is Crista .are you sure you're name's not Crista? Because my name is Crista. are you sure you're name's not Crista? Because my name is Crista" },
             { "type": 'thought', "text": "~~~ why are normal situations so challenging for me? ~~~" },
             { "type": 'received', "text": "yeah for sure, my name's not Crista" },
         ],
