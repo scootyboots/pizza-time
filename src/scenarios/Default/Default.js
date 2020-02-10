@@ -10,6 +10,8 @@ const Default = ({ scenario }) => {
   const [event, changeEvent] = useState([scenario.events[0]])
   const [delays, changeDelay] = useState({text: 50, img: 750})
 
+  const [incText, incrementText] = useState('') 
+
   console.log('-------------- scenario Default received --------------')
   console.log(scenario)
   console.log('-------------- Default event state --------------')
