@@ -10,11 +10,11 @@
   text-align: right;
   width: 70%;
   margin-bottom: 40px;
-  animation: fade-in-bottom 0.75s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in-bottom 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .butten-wrap-sent {
-  display: inline;
+  display: inline-block;
   padding: 10px;
   border: 1px solid black;
   border-radius: 15px 15px 0 15px;
@@ -24,11 +24,11 @@
   text-align: left;
   width: 70%;
   margin-bottom: 40px;
-  animation: fade-in-bottom 0.75s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in-bottom 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .butten-wrap-received {
-  display: inline;
+  display: inline-block;
   padding: 10px;
   border: 1px solid black;
   border-radius: 15px 15px 15px 0;
@@ -63,3 +63,19 @@
     opacity: 1;
   }
 }
+
+/*
+.typing {
+				display: inline-block;
+				width: 0.8rem;
+				height: 0.8rem;
+				margin-right: 0rem;
+				box-sizing: border-box;
+				background: #ccc;
+				border-radius: 50%;
+				
+				&.typing-1 { animation: typing 3s infinite }
+				&.typing-2 { animation: typing 3s 250ms infinite }
+				&.typing-3 { animation: typing 3s 500ms infinite }
+			}
+*/
