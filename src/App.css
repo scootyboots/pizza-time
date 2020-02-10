@@ -31,8 +31,9 @@
   width: 80vw;
   margin: auto;
   text-align: left;
+  display: flex
 }
-
+/* 
 p {
   white-space: nowrap;
   overflow: hidden; 
@@ -50,7 +51,7 @@ p.default-text-animation {
 
 @keyframes type{
   from{width: 0;}
-}
+} */
 
 img.inner-image {
   animation: fade-in-bottom 0.75s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
