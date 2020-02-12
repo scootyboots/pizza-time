@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import allScenarios from '../../scenario-data/index'
 import Notification from '../Notification'
 import Text from '../Text'
@@ -27,14 +27,7 @@ const Default = ({ scenario }) => {
         console.log(scenario.events.length)
       }
     })
-    // window.addEventListener("click", () => {
-    //   console.log('clicked')
-    //   if (event.length < scenario.events.length) {
-    //     changeEvent([...event, scenario.events[event.length]])
-    //     console.log(event.length)
-    //     console.log(scenario.events.length)
-    //   }
-    // })
+    
 
     const calcTimeout = (event) => {
       return event.type === 'text' ? event.content.length * delays.text : delays.img
@@ -56,8 +49,8 @@ const Default = ({ scenario }) => {
   }, [scenario])
 
   const renderContent = ( type, content, alt ) => {
-    // if ( type === 'text' ) return <Text content={content} delay={delays.text}/>
-    if ( type === 'text' ) return <p>{content}</p>
+    if ( type === 'text' ) return <withRouter><Text content={content} delay={delays.text}/></withRouter>
+    // if ( type === 'text' ) return <p>{content}</p>
     if ( type === 'image' ) return <img className="inner-image" src={content} alt={alt}/> 
     if ( type === 'single-message' ) return <div className="single-message">I AM A SINGLE MESSAGE</div>
   }
@@ -69,6 +62,7 @@ const Default = ({ scenario }) => {
       <div className="content-container">
         <div className="content-slide-main">
           {event.map(( { type, content, alt } ) => renderContent(type, content, alt))}
+
           {/* {scenario.events.map(( { type, content, alt } ) => renderContent(type, content, alt))} */}
           
         </div>
@@ -85,4 +79,4 @@ const Default = ({ scenario }) => {
 };
 
 
-export default Default
+export default withRouter(Default)
