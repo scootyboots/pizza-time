@@ -17,10 +17,10 @@ const Text = ({ content, delay }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [incContent])
 
-  useEffect(() => {
-    incrementContent(splitContent[0])
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [content])
+  // useEffect(() => {
+  //   incrementContent(splitContent[0])
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [content])
 
   useEffect(() => {
     window.addEventListener("keydown", () => {
